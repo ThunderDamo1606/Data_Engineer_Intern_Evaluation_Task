@@ -1,23 +1,14 @@
 """
 aggregator.py
 --------------
-Calculate analytics metrics
+Generates analytical metrics.
 """
 
 def compute_metrics(records):
     """
-    Compute:
-    - websites with case study
-    - content length stats
-
-    Parameters:
-        records (list)
-
-    Returns:
-        dict
+    Compute metrics from processed records.
     """
 
-    # Count websites with case studies
     case_study_count = len([
         r for r in records
         if r["section"] == "case_study" and len(r["content"]) > 0
@@ -25,9 +16,9 @@ def compute_metrics(records):
 
     section_lengths = {}
 
-    for r in records:
-        section = r["section"]
-        length = len(r["content"])
+    for record in records:
+        section = record["section"]
+        length = len(record["content"])
 
         if section not in section_lengths:
             section_lengths[section] = []

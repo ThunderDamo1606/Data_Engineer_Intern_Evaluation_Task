@@ -1,6 +1,8 @@
-requests
-beautifulsoup4
-apache-airflow
+requests==2.31.0
+beautifulsoup4==4.12.3
+apache-airflow==2.7.2
+python-dateutil==2.8.2
+
 
 #add-content : this command use for write content in file ex: Add-Content requirements.txt "requests"
 # To check file content Use : ex: Get-Content requirements.txt

@@ -1,11 +1,12 @@
 """
 logger.py
 ---------
-Central logging configuration
+Central logging setup.
 """
 
 import logging
 import os
+
 
 def setup_logger():
 

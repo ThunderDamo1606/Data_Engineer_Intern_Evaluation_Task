@@ -1,25 +1,25 @@
 {
   "websites_with_case_study": 1,
   "section_length_stats": {
-    "navbar": {
-      "min": 0,
-      "max": 2085,
-      "avg": 710.6666666666666
-    },
     "homepage": {
       "min": 41,
       "max": 18854,
       "avg": 9613.666666666666
     },
+    "navbar": {
+      "min": 47,
+      "max": 2085,
+      "avg": 1066.0
+    },
     "footer": {
-      "min": 0,
+      "min": 25,
       "max": 28,
-      "avg": 17.666666666666668
+      "avg": 26.5
     },
     "case_study": {
-      "min": 0,
+      "min": 48,
       "max": 48,
-      "avg": 16.0
+      "avg": 48.0
     }
   }
 }
