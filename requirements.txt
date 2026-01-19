@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+apache-airflow
+
+#add-content : this command use for write content in file ex: Add-Content requirements.txt "requests"
+# To check file content Use : ex: Get-Content requirements.txt
