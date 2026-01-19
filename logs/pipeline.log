@@ -1,0 +1,8 @@
+2026-01-19 13:06:33,390 | INFO | Crawling -> https://openai.com
+2026-01-19 13:06:34,022 | INFO | Crawling -> https://stripe.com
+2026-01-19 13:06:37,827 | INFO | Crawling -> https://shopify.com
+2026-01-19 13:06:39,196 | INFO | Pipeline completed successfully
+2026-01-19 13:06:39,197 | INFO | Crawling -> https://openai.com
+2026-01-19 13:06:39,720 | INFO | Crawling -> https://stripe.com
+2026-01-19 13:06:42,041 | INFO | Crawling -> https://shopify.com
+2026-01-19 13:06:43,259 | INFO | Pipeline completed successfully
