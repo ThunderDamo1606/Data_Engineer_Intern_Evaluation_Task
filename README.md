@@ -1,17 +1,17 @@
-# Data_Engineer_Intern_Evaluation_Task
-## Website Data Pipeline
+# Data Engineer Intern – Website Data Pipeline
 
 ## 📌 Overview
 
-This project implements an end-to-end data engineering pipeline to crawl websites, extract structured content, standardize the data, and compute basic analytics.
-The pipeline is orchestrated using **Apache Airflow** and follows real-world data lake design patterns.
+This project implements a **production-style end-to-end data engineering pipeline** to crawl websites, extract structured content, standardize it into a clean data model, and generate analytical insights.
 
-The main goal is to demonstrate:
+The pipeline follows a **real-world data lake architecture** and is orchestrated using **Apache Airflow** for scheduling and reliability.
 
-* Data pipeline design
-* Clean code structure
-* Reliable orchestration
-* Scalable architecture
+### Key Objectives
+
+* Demonstrate data pipeline design
+* Show modular and clean code structure
+* Implement reliable orchestration
+* Build scalable architecture
 
 ---
 
@@ -21,19 +21,20 @@ The main goal is to demonstrate:
 Growthpal-Pipeline/
 │
 ├── dags/
-│   └── website_pipeline_dag.py
+│   └── website_pipeline_dag.py     # Airflow DAG (orchestration layer)
 │
 ├── src/
-│   ├── crawler.py
-│   ├── extractor.py
-│   ├── transformer.py
-│   └── aggregator.py
+│   ├── crawler.py                 # Website crawling logic
+│   ├── extractor.py               # HTML parsing & tagging
+│   ├── transformer.py             # Standard data model creation
+│   └── aggregator.py              # Analytics & metrics
 │
 ├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── analytics/
+│   ├── raw/                       # Raw HTML (S3 simulation)
+│   ├── processed/                # Clean structured data
+│   └── analytics/                # Aggregated metrics
 │
+├── run_pipeline.py                # Local pipeline runner (without Airflow)
 ├── venv/
 ├── requirements.txt
 └── README.md
@@ -43,24 +44,25 @@ Growthpal-Pipeline/
 
 ## 🔄 Pipeline Flow
 
-### 1️⃣ Crawl Websites
+### 1️⃣ Website Crawling
 
 * Fetch raw HTML using `requests`
-* Capture metadata like URL and crawl timestamp
-* Store raw files in `data/raw/` (S3 simulation)
+* Capture metadata (URL, status code, crawl timestamp)
+* Store raw files in `data/raw/`
+  *(Simulates S3 raw storage layer)*
 
-### 2️⃣ Extract Content
+### 2️⃣ Content Extraction
 
-Using BeautifulSoup:
+Using **BeautifulSoup**, extract:
 
 * Navbar content
 * Homepage content
 * Footer content
 * Case study links (heuristic based)
 
-### 3️⃣ Transform
+### 3️⃣ Data Transformation
 
-Convert extracted content into standard JSON structure:
+Convert extracted content into a **standard JSON format**:
 
 ```json
 {
@@ -72,25 +74,27 @@ Convert extracted content into standard JSON structure:
 }
 ```
 
-### 4️⃣ Aggregate
+Each website generates multiple records (one per section).
 
-Compute metrics:
+### 4️⃣ Aggregation & Metrics
+
+Compute:
 
 * Number of websites with case studies
 * Content length statistics per section
 
-### 5️⃣ Orchestration (Airflow)
+### 5️⃣ Orchestration (Apache Airflow)
 
-* Modular tasks
-* Retry enabled
+* Modular task design
+* Retry enabled for failures
 * Idempotent execution
-* Easy to extend for new websites
+* Easily extendable to new websites
 
 ---
 
 ## ⚙ Installation & Setup
 
-### 1. Create Virtual Environment
+### 1️⃣ Create Virtual Environment
 
 ```bash
 python -m venv venv
@@ -98,16 +102,29 @@ source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 ```
 
-### 2. Install Dependencies
+### 2️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Start Airflow (Local)
+### 3️⃣ Run Pipeline Locally (Without Airflow)
+
+```bash
+python run_pipeline.py
+```
+
+This generates:
+
+* Raw HTML → `data/raw/`
+* Structured data → `data/processed/structured.json`
+* Metrics → `data/analytics/metrics.json`
+
+### 4️⃣ Run with Airflow (Optional)
 
 ```bash
 airflow db init
+
 airflow users create \
   --username admin \
   --password admin \
@@ -133,42 +150,40 @@ Trigger DAG:
 
 ## 🧠 Design Decisions
 
-| Area                  | Reason              |
-| --------------------- | ------------------- |
-| Modular code          | Easy maintenance    |
-| Raw/Processed layers  | Data lake pattern   |
-| Heuristic scraping    | Focus on pipeline   |
-| JSON output           | API ready           |
-| Airflow orchestration | Production workflow |
+| Area                   | Reason                     |
+| ---------------------- | -------------------------- |
+| Modular code           | Easy maintenance & testing |
+| Raw → Processed layers | Follows data lake pattern  |
+| Heuristic scraping     | Focus on pipeline design   |
+| JSON output            | API & analytics ready      |
+| Airflow orchestration  | Production scheduling      |
 
 ---
 
 ## 🛡 Failure Handling
 
 * Network timeout handling
-* Airflow retries enabled
-* Skip failed websites
-* Logs for debugging
+* Retry enabled in Airflow
+* Failed websites skipped safely
+* Logs available for debugging
 
 ---
 
-## 🚀 Scalability
+## 🚀 Scalability & Future Enhancements
 
-Future improvements:
-
-* Parallel crawling
-* S3 storage
-* Spark processing
-* API ingestion
-* Dynamic Airflow tasks
+* Parallel crawling using async processing
+* S3 integration for storage
+* Spark for big data processing
+* API-based ingestion
+* Dynamic Airflow task generation
 
 ---
 
 ## 📊 Sample Outputs
 
 * `data/raw/` → raw HTML files
-* `data/processed/structured.json` → clean data
-* `data/analytics/metrics.json` → analytics
+* `data/processed/structured.json` → clean structured data
+* `data/analytics/metrics.json` → analytical metrics
 
 ---
 
@@ -187,10 +202,10 @@ Software Engineer | Data Analytics | AI & ML Engineer
 
 This project demonstrates:
 
-* Real data engineering practices
-* Clean architecture
-* Scalable design
-* Production mindset
+* Real-world data engineering workflow
+* Clean & scalable architecture
+* Production-ready design
+* Strong understanding of ETL pipelines
 
 ---
 
