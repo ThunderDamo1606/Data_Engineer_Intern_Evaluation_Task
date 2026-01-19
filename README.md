@@ -200,11 +200,14 @@ The pipeline dynamically processes all websites listed here.
 ## Author
 
 **Damodar Sadavarte**
-Software Engineer | Data Analyst | AI & ML Engineer
 
-📧 Email: [damodarsadavarte2000@gmail.com](mailto:damodarsadavarte2000@gmail.com)
-🔗 GitHub: [https://github.com/ThunderDamo1606](https://github.com/ThunderDamo1606)
-🔗 LinkedIn: [https://linkedin.com/in/damodar-sadavarte](https://linkedin.com/in/damodar-sadavarte)
+- Software Engineer  
+- Data Analyst  
+- AI & ML Engineer  
+
+📧 **Email:** damodarsadavarte2000@gmail.com  
+🔗 **GitHub:** https://github.com/ThunderDamo1606  
+🔗 **LinkedIn:** https://linkedin.com/in/damodar-sadavarte
 
 ---
 
